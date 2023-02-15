@@ -40,6 +40,11 @@ rm(list=ls(all=TRUE))
 # setwd(wd_path)
 
 
+
+data_path <- 'C:/Users/carol/OneDrive/Documentos/GitHub/QMB6912S23/demo_04/Tractor_Tables/'
+setwd(data_path)
+
+
 # Set data directory.
 data_dir <- 'Data'
 
@@ -262,17 +267,19 @@ print('Season Sold by Make of Tractor')
 
 
 avg_price_seasons_1 <- aggregate(x = tractor_sales[, 'saleprice'], 
-                               # data = tractor_sales, 
+                                data = tractor_sales, 
                                FUN = mean, 
                                by = list(Season = tractor_sales[, 'season_sold'], 
                                          Brand = tractor_sales[, 'johndeere']))
 print(avg_price_seasons_1)
 
-
-
-avg_price_seasons_2 <- aggregate(x = saleprice ~ season_sold + johndeere, 
+avg_price_seasons_2 <- aggregate(saleprice ~ season_sold + johndeere,
                                  data = tractor_sales,
                                  FUN = mean)
+
+#avg_price_seasons_2 <- aggregate(x = saleprice ~ season_sold + johndeere, 
+#                                 data = tractor_sales,
+#                                 FUN = mean)
 
 
 out_tab <- cbind(avg_price_seasons_2[avg_price_seasons_2[, 'johndeere'] == 1, 'saleprice'], 
