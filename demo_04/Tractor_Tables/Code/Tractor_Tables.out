@@ -107,8 +107,8 @@ Max. age        "33.00"    "33.00"
 Min. enghours   "   22"    "    1" 
 Mean enghours   " 4023"    " 3449" 
 Max. enghours   "10734"    "18744" 
-% latex table generated in R 4.0.5 by xtable 1.8-4 package
-% Tue Feb 07 16:01:18 2023
+% latex table generated in R 4.2.2 by xtable 1.8-4 package
+% Sat Feb 11 13:26:51 2023
 \begin{table}[ht]
 \centering
 \begin{tabular}{rll}
@@ -175,8 +175,8 @@ Automatic          9    73     82
 Manual            30   164    194
 No Cab            25   101    126
 Has Cab           14   136    150
-% latex table generated in R 4.0.5 by xtable 1.8-4 package
-% Tue Feb 07 16:01:18 2023
+% latex table generated in R 4.2.2 by xtable 1.8-4 package
+% Sat Feb 11 13:26:52 2023
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrr}
@@ -213,8 +213,8 @@ Spring          9    53     62
 Summer          6    58     64
 Winter         10    37     47
 Totals         39   237    276
-% latex table generated in R 4.0.5 by xtable 1.8-4 package
-% Tue Feb 07 16:01:18 2023
+% latex table generated in R 4.2.2 by xtable 1.8-4 package
+% Sat Feb 11 13:26:52 2023
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrr}
@@ -231,14 +231,42 @@ Fall & 14 & 89 & 103 \\
 \caption{Season Sold by Make of Tractor} 
 \label{tab:season_sold_by_make}
 \end{table}
+[1] "Season Sold by Make of Tractor"
+  Season Brand        x
+1   Fall     0 16574.16
+2 Spring     0 23957.55
+3 Summer     0 16062.07
+4 Winter     0 25909.46
+5   Fall     1 35875.00
+6 Spring     1 37483.33
+7 Summer     1 11908.33
+8 Winter     1 17990.00
+[1] "matrix" "array" 
+% latex table generated in R 4.2.2 by xtable 1.8-4 package
+% Sat Feb 11 13:26:52 2023
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrr}
+  \hline
+ & John Deere & Other \\ 
+  \hline
+Fall & 35875 & 16574 \\ 
+  Spring & 37483 & 23958 \\ 
+  Summer & 11908 & 16062 \\ 
+  Winter & 17990 & 25909 \\ 
+   \hline
+\end{tabular}
+\caption{Average Price of Tractors by Season Sold} 
+\label{tab:avg_price_by_season_sold}
+\end{table}
 [1] "Correlation Matrix for Numeric Variables"
               Log. of Price Horsepower         Age Engine Hours
 Log. of Price    1.00000000 0.64850242 -0.44054234  -0.04583549
 Horsepower       0.64850242 1.00000000  0.03884978   0.37778287
 Age             -0.44054234 0.03884978  1.00000000   0.55903832
 Engine Hours    -0.04583549 0.37778287  0.55903832   1.00000000
-% latex table generated in R 4.0.5 by xtable 1.8-4 package
-% Tue Feb 07 16:01:18 2023
+% latex table generated in R 4.2.2 by xtable 1.8-4 package
+% Sat Feb 11 13:26:52 2023
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrr}
@@ -261,8 +289,8 @@ Diesel           0.33125113 1.0000000 0.207044198 0.347308025 0.3443448
 FWD              0.52178621 0.2070442 1.000000000 0.005563019 0.2232880
 Manual           0.03866933 0.3473080 0.005563019 1.000000000 0.2795915
 Cab              0.58783933 0.3443448 0.223288042 0.279591470 1.0000000
-% latex table generated in R 4.0.5 by xtable 1.8-4 package
-% Tue Feb 07 16:01:18 2023
+% latex table generated in R 4.2.2 by xtable 1.8-4 package
+% Sat Feb 11 13:26:52 2023
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrr}
