@@ -45,6 +45,10 @@ rm(list=ls(all=TRUE))
 # wd_path <- '~/GitHub/QMB6912S23/demo_05/Tractor_Data_Vis'
 # setwd(wd_path)
 
+data_path <- 'C:/Users/carol/OneDrive/Documentos/GitHub/QMB6912S23/demo_05/Tractor_Data_Vis/'
+setwd(data_path)
+
+
 # Set data directory.
 data_dir <- 'Data'
 
