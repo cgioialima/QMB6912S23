@@ -39,6 +39,9 @@ rm(list=ls(all=TRUE))
 # setwd(wd_path)
 
 
+data_path <- 'C:/Users/carol/OneDrive/Documentos/GitHub/QMB6912S23/demo_04/FlyReel_Tables/'
+setwd(data_path)
+
 # Set data directory.
 data_dir <- 'Data'
 
@@ -86,6 +89,7 @@ print('Summary by Country of Manufacture:')
 
 # Summarize numeric variables by country of manufacture.
 country_sum <- data.frame(Country = unique(flyreels$Country))
+
 for (var_name in colnames(flyreels)[lapply(flyreels, class) == 'numeric']) {
 
   col_names <- sprintf('%s %s', c('Min.', 'Mean', 'Max.'), var_name)
