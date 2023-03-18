@@ -1,0 +1,313 @@
+\documentclass[11pt]{article}
+\usepackage{fullpage}
+\usepackage{palatino}
+\usepackage{amsfonts,amsmath,amssymb}
+% \usepackage{graphicx}
+
+\usepackage[margin=0.25in]{geometry}
+
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage{color}
+\usepackage{longtable}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=R,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+
+
+\ifx\pdftexversion\undefined
+    \usepackage[dvips]{graphicx}
+\else
+    \usepackage[pdftex]{graphicx}
+    \usepackage{epstopdf}
+    \epstopdfsetup{suffix=}
+\fi
+
+\usepackage{subfig}
+
+
+% This allows pdflatex to print the curly quotes in the
+% significance codes in the output of the GAM.
+\UseRawInputEncoding
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem Set 7
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{empty}
+{\noindent\bf Spring 2023 \hfill Carolina.~Lima}
+\vskip 16pt
+\centerline{\bf University of Central Florida}
+\centerline{\bf College of Business}
+\vskip 16pt
+\centerline{\bf QMB 6911}
+\centerline{\bf Capstone Project in Business Analytics}
+\vskip 10pt
+\centerline{\bf Solutions:  Problem Set \#7}
+\vskip 32pt
+\noindent
+% 
+\section{Data Description}
+
+This analysis follows the script \texttt{assignment7.R} to produce a more accurate model for used Home prices with the data from \texttt{HomeSales.dat} in the \texttt{Data} folder. 
+The dataset includes the following variables.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{ll}
+  \hline
+    Variable & Definition \\
+  \hline
+    {\tt year\_built}      & the year in which the house was constructed \cr
+    {\tt num\_beds}      & the number of bedrooms in the house \cr
+    {\tt num\_baths}      & the number of bathrooms in the house\cr
+    {\tt floor\_space}      & the area of floor space in the house, in square feet\cr
+    {\tt lot\_size}      & the area of lot on which the house was built, in square feet \cr
+    {\tt has\_garage}      & an indicator for whether the house has a garage \cr
+    {\tt has\_encl\_patio}      & an indicator for whether the house has an enclosed patio \cr
+    {\tt has\_security\_gate}      & an indicator for whether the property is accessed through a security gate \cr
+    {\tt has\_pool}      & an indicator for whether the property includes a pool \cr
+    {\tt transit\_score}      & an integer to represent the convenience of transportation options \cr
+    {\tt school\_score}      & an integer to represent the quality of the schools in the county  \cr
+    {\tt type\_of\_buyer}      & a categorical variable to indicate the type of buyer, \cr
+		& either ``Owner-Occupied'' or ``Rental''  \cr
+    {\tt price}      & the price at which the home was sold \cr
+  \hline
+\end{tabular}
+\end{table}
+
+\noindent Two new variables were created:
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{ll}
+  \hline
+    Variable & Definition \\
+  \hline
+    {\tt log\_price}      & logarithm of the house price \cr
+    {\tt age}      & the age of the house, calculated based on the year built \cr
+
+  \hline
+\end{tabular}
+\end{table}
+%
+I will first estimate a model with nonlinear functional forms, and then consider exclusions of insignificant variables from the full model, with nonlinearity taken into account. 
+This approach allows for inclusion of possibly irrelevant variables and avoids excluding any relevant variables. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Example with a Categorical Numerical Variable
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Example with a Categorical Numerical Variable}
+\subsection{School Score}
+Decided to try the variable school score as a factor, differently than what it was used on Problem Set \#6.
+Table \ref{tab:fact.school} shows odel 1 being the full model, model 2 the best reduced model found in Problem Set \#6 and model 3 the full model using school score as a factor. We see there is no difference in R squared for any of these models, however school schore goes from being insiginifcant is model 1 to having each different factor being significant in model 3. Floor space continues to be statistically insiginificant in both models.
+
+\input{../Tables/fact.school}
+%\pagebreak
+
+\subsection{Transit Score}
+Separated variable for transit score in 4 different categories to analyze significance in the model.
+Table \ref{tab:cat.transit} shows model 1 being the full model with school score as a factor and model 2 has the adtional separate categories for transit score.
+None of the new catecories are statistically significant while the original transit score variable is. There is also no diffrence on R squared and adjusted R squared
+New categories will not be added to the model.
+
+\input{../Tables/cat.transit}
+
+\subsection{Lot Size}
+Transformed lot size into 5 categories. On table \ref{tab:cat_comp} model 1 is our current best model ( full model with school score as factor) and model 2 is the full model with the new lot size categories.
+We can see that category  5050-6650 is statistically significant while the others are not, this sugestsa non linear relationship between lot size and the home price. There is no difference on the R squared or adjusted R squared for these models, but since
+lot size is a continuous variable, we can do better.
+ 
+\input{../Tables/cat_comp}
+
+\section{Nonlinear Model Specifications}
+\subsection{Quadratic Specification for lot size}
+
+%\pagebreak
+\section{Example with a Categorical Numerical Variable}
+
+I will revisit the recommended linear model
+from Problem Set \#6, 
+augmented with a quadratic specification for lot size.
+This allowed for an increasing relationship 
+between price and lot size, 
+for Homes with low lot size, 
+but a decreasing relationship for the tractors with high lot size. 
+%
+In doing so, I will further investigate nonlinear relationships
+by incorporating another nonlinear but parametric specification
+for the value of lot size. 
+This parametric analysis will be performed
+using the Box-Tidwell framework
+to investigate whether the value of these characteristics
+are best described with parametric nonlinear forms. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section{Linear Regression Model}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A natural staring point is the recommended linear model
+from Problem Set \#6, augmented with 
+the quadratic specification for lot size. 
+
+\subsection{Quadratic Specification for Lot Size}
+
+In the demo for Problem Set \#6, 
+we considered the advice of
+a used tractor dealer who reported that overpowered used tractors are hard to sell, since they consume more fuel. 
+This implies that tractor prices often increase with lot size, up to a point, but beyond that they decrease. 
+To incorporate this advice, I created and included a variable for squared lot size. 
+A decreasing relationship for high values of lot size
+is characterized by 
+a positive coefficient on the lot size variable and
+a negative coefficient on the squared lot size variable. 
+
+% 
+\input{../Tables/reg_sq_lot}
+% 
+The results of this regression specification are shown in 
+Table \ref{tab:reg_sq_lot}. 
+%
+The squared lot size variable has a coefficient of $-2.081e-05$, which is nearly ten times as large as the standard error of $2.199e-06$, which is very strong evidence against the null hypothesis of a positive or zero coefficient. 
+I conclude that the log of the sale price does decline for large values of lot size. 
+
+
+With the squared lot size variable, the $\bar{R}^2$ is $0.764$, indicating that it is a much stronger model than the others we considered. 
+The $F$-statistic is large, indicating that it is a better candidate than the simple average log sale price. 
+The new squared lot size variable is statistically significant and the theory behind it is sound, since above a certain point, added lot size may not improve performance but will cost more to operate. 
+This new model is much improved over the previous models with a linear specification for lot size.
+Next, I will attempt to improve on this specification, 
+as we did for Problem Set \#8. 
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \clearpage
+\section{Nonlinear Specifications}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\pagebreak
+\subsection{The Box--Tidwell Transformation}
+
+The Box--Tidwell function tests for non-linear relationships
+to the mean of the dependent variable.
+The nonlinearity is in the form of an
+exponential transformation in the form of the Box-Cox
+transformation, except that the transformation is taken
+on the explanatory variables.
+
+
+\subsubsection{Transformation of lot size}
+
+
+Performing the transformation on the lot size variable
+produces a modified form of the linear model.
+This specification allows a single exponential
+transformation on lot size, rather than a quadratic form.
+
+\input{../Tables/bt_lot}
+
+The \textsf{R} output is the statistics for a test of nonlinearity:
+that the exponent $\lambda$ in the Box--Tidwell transformation is zero.
+%
+The "\texttt{MLE of lambda}" statistic is the optimal exponent on lot size.
+Similar to the Box-Cox transformation,
+with Box-Tidwell, the exponents are on the explanatory variables
+and are all called lambda, in contrast
+to the parameter $\tau$ in our class notes.
+The exponent is significantly different from 0,
+although it is a small positive value,
+which suggests an increasing relationship
+for the value of lot size
+with a slope that is sharply declining.
+Next I consider the possibility of a changing relationship 
+for the next continuous variable. 
+
+
+\subsubsection{Transformation of Age}
+
+
+\input{../Tables/bt_age}
+
+This coefficient is effectively 1, which is more evidence of
+a purely linear relationship between \texttt{log\_saleprice}
+and age: the percentage depreciation rate is constant.
+Next, I will consider the possibility of nonlinearity 
+in depreciation from hours of use. 
+
+
+\subsubsection{Transformation of All Three Continuous Variables}
+
+
+\input{../Tables/bt_full}
+
+
+The performance is similar to the other models with
+forms of nonlinearity for the value of lot size.
+Now consider the full set of such models in a table for a final comparison.
+
+
+\pagebreak
+\section{Final Comparison of Candidate Models}
+
+I created a variable \texttt{lot size\_bt}
+by raising lot size to the optimal exponent 
+$\hat{\lambda} = 0.1143693$. 
+Then, I included this variable in the place of 
+the lot size variables a the linear regression model.
+% 
+Table \ref{tab:reg_sq_lot_bt} collects the results
+of the set of models from the three forms of nonlinearity.
+Model 1 is the linear regression model with 
+a quadratic form for lot size. 
+Model 2 
+has the same specification as the other one, 
+except that the lot size variable is transformed using the optimal
+exponent for the Box-Tidwell transformation. 
+% 
+The last model has the highest R-squared
+among the ones we have estimated.
+Again, the differences are marginal, so the practical recommendation
+is the model with the quadratic relationship for lot size, 
+which has a simpler interpretation.
+In either case, we conclude that John Deere tractors are worth
+approximately thirty percent more valuable
+than an equivalent tractor of another brand. 
+Compare this with the lower premium of 17\%, 
+which was not even statistically significant, 
+when we estimated a simpler, linear specification
+in which we ignored the nonlinearity in the model. 
+
+\input{../Tables/reg_sq_lot_bt}
+
+Table \ref{tab:reg_age_bt} compare previours model with variable age transformed using $\hat{\lambda} = 0.1143693$. 
+
+\input{../Tables/reg_age_bt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

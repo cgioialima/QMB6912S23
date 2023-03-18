@@ -1,0 +1,500 @@
+ [1] "V1"  "V2"  "V3"  "V4"  "V5"  "V6"  "V7"  "V8"  "V9"  "V10" "V11" "V12"
+[13] "V13"
+[1] "Creating new variable - log_price."
+[1] "Creating new variable - age."
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   3.000   6.000   5.465   8.000  10.000 
+
+0-3 3-6 6-8  8+ 
+407 422 440 593 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1267    5053    6422    6643    8058   15278 
+
+   0-5050 5050-6650 6650-8060     8060+      <NA> 
+      464       525         0       465       408 
+
+  1   2   3   4   5   6   7   8   9  10 
+117 136 164 193 207 162 225 274 250 134 
+
+Call:
+lm(formula = log_price ~ as.factor(num_beds) + as.factor(num_baths) + 
+    floor_space + lot_size + has_garage + has_encl_patio + has_security_gate + 
+    has_pool + transit_score + school_score + type_of_buyer + 
+    age, data = data)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.79149 -0.16375 -0.05176  0.11306  1.72042 
+
+Coefficients:
+                        Estimate Std. Error t value Pr(>|t|)    
+(Intercept)            1.222e+01  6.433e-02 189.874  < 2e-16 ***
+as.factor(num_beds)2   8.297e-02  3.183e-02   2.606 0.009224 ** 
+as.factor(num_beds)3   2.049e-01  4.011e-02   5.108 3.60e-07 ***
+as.factor(num_beds)4   4.178e-01  4.733e-02   8.826  < 2e-16 ***
+as.factor(num_beds)6   4.777e-01  7.916e-02   6.034 1.92e-09 ***
+as.factor(num_beds)8   8.307e-01  9.758e-02   8.513  < 2e-16 ***
+as.factor(num_baths)2  7.490e-02  1.662e-02   4.507 7.00e-06 ***
+as.factor(num_baths)3  8.553e-02  3.330e-02   2.568 0.010303 *  
+floor_space            6.592e-05  5.228e-05   1.261 0.207500    
+lot_size               2.988e-05  4.759e-06   6.279 4.23e-10 ***
+has_garage             2.767e-01  3.296e-02   8.397  < 2e-16 ***
+has_encl_patio         4.608e-02  1.436e-02   3.209 0.001354 ** 
+has_security_gate      2.300e-01  2.056e-02  11.184  < 2e-16 ***
+has_pool               9.967e-02  2.560e-02   3.893 0.000103 ***
+transit_score          6.665e-02  3.458e-03  19.276  < 2e-16 ***
+school_score           4.053e-03  3.271e-03   1.239 0.215574    
+type_of_buyerRental    1.108e-01  1.879e-02   5.898 4.37e-09 ***
+age                   -9.743e-03  4.826e-04 -20.188  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2611 on 1844 degrees of freedom
+Multiple R-squared:  0.6504,	Adjusted R-squared:  0.6471 
+F-statistic: 201.8 on 17 and 1844 DF,  p-value: < 2.2e-16
+
+
+Call:
+lm(formula = log_price ~ as.factor(num_beds) + as.factor(num_baths) + 
+    lot_size + has_garage + has_encl_patio + has_security_gate + 
+    has_pool + transit_score + type_of_buyer + age, data = data)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.78705 -0.16458 -0.05077  0.11369  1.73138 
+
+Coefficients:
+                        Estimate Std. Error t value Pr(>|t|)    
+(Intercept)            1.228e+01  3.976e-02 308.946  < 2e-16 ***
+as.factor(num_beds)2   9.420e-02  3.111e-02   3.028  0.00250 ** 
+as.factor(num_beds)3   2.298e-01  3.738e-02   6.147 9.65e-10 ***
+as.factor(num_beds)4   4.596e-01  4.082e-02  11.261  < 2e-16 ***
+as.factor(num_beds)6   5.417e-01  6.641e-02   8.157 6.30e-16 ***
+as.factor(num_beds)8   9.190e-01  7.485e-02  12.278  < 2e-16 ***
+as.factor(num_baths)2  8.058e-02  1.595e-02   5.052 4.82e-07 ***
+as.factor(num_baths)3  9.647e-02  3.207e-02   3.008  0.00266 ** 
+lot_size               3.332e-05  4.351e-06   7.658 3.03e-14 ***
+has_garage             3.084e-01  2.219e-02  13.895  < 2e-16 ***
+has_encl_patio         4.601e-02  1.436e-02   3.204  0.00138 ** 
+has_security_gate      2.338e-01  2.021e-02  11.568  < 2e-16 ***
+has_pool               1.005e-01  2.561e-02   3.924 9.02e-05 ***
+transit_score          6.667e-02  3.457e-03  19.285  < 2e-16 ***
+type_of_buyerRental    1.101e-01  1.876e-02   5.868 5.22e-09 ***
+age                   -9.717e-03  4.826e-04 -20.136  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2612 on 1846 degrees of freedom
+Multiple R-squared:  0.6498,	Adjusted R-squared:  0.6469 
+F-statistic: 228.3 on 15 and 1846 DF,  p-value: < 2.2e-16
+
+
+Call:
+lm(formula = log_price ~ as.factor(num_beds) + as.factor(num_baths) + 
+    floor_space + lot_size + has_garage + has_encl_patio + has_security_gate + 
+    has_pool + transit_score + as.factor(school_score) + type_of_buyer + 
+    age, data = data)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.80004 -0.16138 -0.05228  0.11201  1.70442 
+
+Coefficients:
+                            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                1.216e+01  6.661e-02 182.584  < 2e-16 ***
+as.factor(num_beds)2       6.977e-02  3.213e-02   2.171  0.03004 *  
+as.factor(num_beds)3       1.901e-01  4.060e-02   4.681 3.06e-06 ***
+as.factor(num_beds)4       4.120e-01  4.742e-02   8.689  < 2e-16 ***
+as.factor(num_beds)6       4.712e-01  7.923e-02   5.947 3.26e-09 ***
+as.factor(num_beds)8       8.268e-01  9.756e-02   8.475  < 2e-16 ***
+as.factor(num_baths)2      7.468e-02  1.664e-02   4.488 7.64e-06 ***
+as.factor(num_baths)3      8.607e-02  3.336e-02   2.580  0.00997 ** 
+floor_space                6.204e-05  5.226e-05   1.187  0.23535    
+lot_size                   3.082e-05  4.845e-06   6.361 2.52e-10 ***
+has_garage                 2.767e-01  3.296e-02   8.395  < 2e-16 ***
+has_encl_patio             4.636e-02  1.439e-02   3.221  0.00130 ** 
+has_security_gate          2.314e-01  2.082e-02  11.114  < 2e-16 ***
+has_pool                   9.999e-02  2.558e-02   3.909 9.62e-05 ***
+transit_score              6.650e-02  3.464e-03  19.200  < 2e-16 ***
+as.factor(school_score)2   1.029e-01  3.325e-02   3.094  0.00201 ** 
+as.factor(school_score)3   1.001e-01  3.231e-02   3.099  0.00197 ** 
+as.factor(school_score)4   9.229e-02  3.177e-02   2.905  0.00372 ** 
+as.factor(school_score)5   8.607e-02  3.187e-02   2.701  0.00699 ** 
+as.factor(school_score)6   1.021e-01  3.364e-02   3.035  0.00244 ** 
+as.factor(school_score)7   9.600e-02  3.266e-02   2.940  0.00333 ** 
+as.factor(school_score)8   9.904e-02  3.277e-02   3.023  0.00254 ** 
+as.factor(school_score)9   8.716e-02  3.503e-02   2.488  0.01293 *  
+as.factor(school_score)10  9.569e-02  4.156e-02   2.302  0.02142 *  
+type_of_buyerRental        1.115e-01  1.884e-02   5.919 3.86e-09 ***
+age                       -9.684e-03  4.829e-04 -20.054  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2608 on 1836 degrees of freedom
+Multiple R-squared:  0.6527,	Adjusted R-squared:  0.648 
+F-statistic:   138 on 25 and 1836 DF,  p-value: < 2.2e-16
+
+
+Call:
+lm(formula = log_price ~ as.factor(num_beds) + as.factor(num_baths) + 
+    floor_space + lot_size + has_garage + has_encl_patio + has_security_gate + 
+    has_pool + transit_score + ts_cat + as.factor(school_score) + 
+    type_of_buyer + age, data = data)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.79262 -0.16084 -0.05151  0.11435  1.70678 
+
+Coefficients:
+                            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                1.219e+01  7.011e-02 173.908  < 2e-16 ***
+as.factor(num_beds)2       7.280e-02  3.221e-02   2.260 0.023934 *  
+as.factor(num_beds)3       1.910e-01  4.058e-02   4.707 2.70e-06 ***
+as.factor(num_beds)4       4.026e-01  4.909e-02   8.202 4.41e-16 ***
+as.factor(num_beds)6       4.607e-01  8.091e-02   5.694 1.44e-08 ***
+as.factor(num_beds)8       8.146e-01  9.894e-02   8.233 3.43e-16 ***
+as.factor(num_baths)2      7.529e-02  1.665e-02   4.522 6.53e-06 ***
+as.factor(num_baths)3      8.640e-02  3.336e-02   2.589 0.009689 ** 
+floor_space                6.105e-05  5.223e-05   1.169 0.242608    
+lot_size                   3.102e-05  4.868e-06   6.373 2.34e-10 ***
+has_garage                 2.745e-01  3.301e-02   8.315  < 2e-16 ***
+has_encl_patio             4.567e-02  1.439e-02   3.173 0.001532 ** 
+has_security_gate          2.311e-01  2.081e-02  11.102  < 2e-16 ***
+has_pool                   9.939e-02  2.559e-02   3.885 0.000106 ***
+transit_score              5.156e-02  1.032e-02   4.995 6.44e-07 ***
+ts_cat3-6                  3.402e-02  3.571e-02   0.953 0.340916    
+ts_cat6-8                  4.937e-02  5.686e-02   0.868 0.385362    
+ts_cat8+                   1.099e-01  7.498e-02   1.466 0.142743    
+as.factor(school_score)2   1.027e-01  3.326e-02   3.087 0.002054 ** 
+as.factor(school_score)3   1.009e-01  3.230e-02   3.123 0.001816 ** 
+as.factor(school_score)4   9.226e-02  3.176e-02   2.905 0.003712 ** 
+as.factor(school_score)5   8.693e-02  3.186e-02   2.729 0.006417 ** 
+as.factor(school_score)6   1.027e-01  3.363e-02   3.055 0.002285 ** 
+as.factor(school_score)7   9.744e-02  3.267e-02   2.982 0.002900 ** 
+as.factor(school_score)8   1.009e-01  3.276e-02   3.078 0.002114 ** 
+as.factor(school_score)9   8.748e-02  3.502e-02   2.498 0.012584 *  
+as.factor(school_score)10  9.562e-02  4.156e-02   2.301 0.021511 *  
+type_of_buyerRental        1.081e-01  1.903e-02   5.683 1.54e-08 ***
+age                       -9.679e-03  4.827e-04 -20.052  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2606 on 1833 degrees of freedom
+Multiple R-squared:  0.6537,	Adjusted R-squared:  0.6485 
+F-statistic: 123.6 on 28 and 1833 DF,  p-value: < 2.2e-16
+
+
+Call:
+lm(formula = log_price ~ as.factor(num_beds) + as.factor(num_baths) + 
+    floor_space + lot_size + lot_cat + has_garage + has_encl_patio + 
+    has_security_gate + has_pool + transit_score + as.factor(school_score) + 
+    type_of_buyer + age, data = data)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.77681 -0.16278 -0.05268  0.11299  1.71994 
+
+Coefficients:
+                            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                1.215e+01  8.195e-02 148.259  < 2e-16 ***
+as.factor(num_beds)2       6.911e-02  3.423e-02   2.019 0.043680 *  
+as.factor(num_beds)3       2.070e-01  4.530e-02   4.570 5.30e-06 ***
+as.factor(num_beds)4       4.512e-01  5.443e-02   8.290 2.59e-16 ***
+as.factor(num_beds)6       5.273e-01  9.084e-02   5.804 7.95e-09 ***
+as.factor(num_beds)8       8.873e-01  1.106e-01   8.020 2.18e-15 ***
+as.factor(num_baths)2      8.281e-02  1.969e-02   4.206 2.76e-05 ***
+as.factor(num_baths)3      8.906e-02  4.071e-02   2.188 0.028859 *  
+floor_space                5.533e-05  6.044e-05   0.915 0.360115    
+lot_size                   2.647e-05  1.021e-05   2.592 0.009628 ** 
+lot_cat5050-6650           4.315e-02  2.561e-02   1.685 0.092201 .  
+lot_cat8060+               3.238e-02  5.357e-02   0.604 0.545611    
+has_garage                 2.755e-01  3.827e-02   7.200 9.73e-13 ***
+has_encl_patio             3.087e-02  1.716e-02   1.799 0.072224 .  
+has_security_gate          2.319e-01  2.480e-02   9.351  < 2e-16 ***
+has_pool                   1.058e-01  2.957e-02   3.578 0.000357 ***
+transit_score              6.880e-02  4.050e-03  16.989  < 2e-16 ***
+as.factor(school_score)2   1.068e-01  3.546e-02   3.012 0.002641 ** 
+as.factor(school_score)3   7.516e-02  3.468e-02   2.167 0.030382 *  
+as.factor(school_score)4   9.551e-02  3.440e-02   2.776 0.005571 ** 
+as.factor(school_score)5   7.630e-02  3.448e-02   2.213 0.027060 *  
+as.factor(school_score)6   7.510e-02  3.693e-02   2.034 0.042165 *  
+as.factor(school_score)7   8.120e-02  3.595e-02   2.259 0.024036 *  
+as.factor(school_score)8   9.359e-02  3.632e-02   2.577 0.010077 *  
+as.factor(school_score)9   8.835e-02  4.002e-02   2.208 0.027434 *  
+as.factor(school_score)10  8.106e-02  4.790e-02   1.692 0.090782 .  
+type_of_buyerRental        1.274e-01  2.202e-02   5.784 8.94e-09 ***
+age                       -9.593e-03  5.589e-04 -17.163  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2689 on 1426 degrees of freedom
+  (408 observations deleted due to missingness)
+Multiple R-squared:  0.6673,	Adjusted R-squared:  0.661 
+F-statistic:   106 on 27 and 1426 DF,  p-value: < 2.2e-16
+
+# Comparison of Model Performance Indices
+
+Name          | Model |    R2 | R2 (adj.) |  RMSE | Sigma | AIC weights | AICc weights | BIC weights | Performance-Score
+------------------------------------------------------------------------------------------------------------------------
+best_red      |    lm | 0.650 |     0.647 | 0.260 | 0.261 |       0.533 |        0.556 |       0.997 |            67.71%
+model_full    |    lm | 0.650 |     0.647 | 0.260 | 0.261 |       0.359 |        0.360 |       0.003 |            45.04%
+model_ts_cat  |    lm | 0.654 |     0.648 | 0.259 | 0.261 |       0.050 |        0.037 |    2.31e-17 |            35.66%
+model_school  |    lm | 0.653 |     0.648 | 0.259 | 0.261 |       0.058 |        0.048 |    1.08e-13 |            33.73%
+model_lot_cat |    lm | 0.667 |     0.661 | 0.266 | 0.269 |    2.20e-08 |     1.47e-08 |    5.80e-21 |            28.57%
+
+Call:
+lm(formula = log_price ~ as.factor(num_beds) + as.factor(num_baths) + 
+    floor_space + lot_size + sq_lot_size + has_garage + has_encl_patio + 
+    has_security_gate + has_pool + transit_score + as.factor(school_score) + 
+    type_of_buyer + age, data = data)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.79432 -0.16291 -0.05291  0.10964  1.70440 
+
+Coefficients:
+                            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                1.206e+01  8.494e-02 141.992  < 2e-16 ***
+as.factor(num_beds)2       6.338e-02  3.228e-02   1.963 0.049745 *  
+as.factor(num_beds)3       1.814e-01  4.081e-02   4.445 9.33e-06 ***
+as.factor(num_beds)4       4.046e-01  4.754e-02   8.510  < 2e-16 ***
+as.factor(num_beds)6       4.811e-01  7.934e-02   6.063 1.61e-09 ***
+as.factor(num_beds)8       8.570e-01  9.873e-02   8.680  < 2e-16 ***
+as.factor(num_baths)2      7.439e-02  1.663e-02   4.473 8.18e-06 ***
+as.factor(num_baths)3      8.890e-02  3.337e-02   2.664 0.007790 ** 
+floor_space                5.939e-05  5.224e-05   1.137 0.255784    
+lot_size                   6.699e-05  1.940e-05   3.453 0.000566 ***
+sq_lot_size               -2.483e-09  1.290e-09  -1.925 0.054322 .  
+has_garage                 2.683e-01  3.322e-02   8.077 1.19e-15 ***
+has_encl_patio             4.609e-02  1.438e-02   3.204 0.001378 ** 
+has_security_gate          2.306e-01  2.081e-02  11.080  < 2e-16 ***
+has_pool                   1.008e-01  2.557e-02   3.944 8.31e-05 ***
+transit_score              6.676e-02  3.464e-03  19.275  < 2e-16 ***
+as.factor(school_score)2   1.007e-01  3.325e-02   3.029 0.002492 ** 
+as.factor(school_score)3   9.819e-02  3.230e-02   3.040 0.002401 ** 
+as.factor(school_score)4   8.833e-02  3.181e-02   2.776 0.005552 ** 
+as.factor(school_score)5   8.086e-02  3.196e-02   2.530 0.011492 *  
+as.factor(school_score)6   9.705e-02  3.372e-02   2.878 0.004048 ** 
+as.factor(school_score)7   9.074e-02  3.275e-02   2.771 0.005647 ** 
+as.factor(school_score)8   9.437e-02  3.283e-02   2.874 0.004099 ** 
+as.factor(school_score)9   8.297e-02  3.507e-02   2.366 0.018103 *  
+as.factor(school_score)10  1.011e-01  4.162e-02   2.428 0.015262 *  
+type_of_buyerRental        1.120e-01  1.882e-02   5.953 3.15e-09 ***
+age                       -9.667e-03  4.827e-04 -20.029  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2606 on 1835 degrees of freedom
+Multiple R-squared:  0.6534,	Adjusted R-squared:  0.6485 
+F-statistic:   133 on 26 and 1835 DF,  p-value: < 2.2e-16
+
+
+Call:
+lm(formula = log_price ~ as.factor(num_beds) + as.factor(num_baths) + 
+    lot_size + sq_lot_size + has_garage + has_encl_patio + has_security_gate + 
+    has_pool + transit_score + as.factor(school_score) + type_of_buyer + 
+    age, data = data)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.79273 -0.16186 -0.05528  0.11081  1.70719 
+
+Coefficients:
+                            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                1.212e+01  6.955e-02 174.215  < 2e-16 ***
+as.factor(num_beds)2       7.027e-02  3.171e-02   2.216 0.026796 *  
+as.factor(num_beds)3       1.958e-01  3.879e-02   5.049 4.89e-07 ***
+as.factor(num_beds)4       4.272e-01  4.317e-02   9.896  < 2e-16 ***
+as.factor(num_beds)6       5.291e-01  6.717e-02   7.878 5.67e-15 ***
+as.factor(num_beds)8       9.279e-01  7.654e-02  12.123  < 2e-16 ***
+as.factor(num_baths)2      7.970e-02  1.596e-02   4.993 6.50e-07 ***
+as.factor(num_baths)3      9.920e-02  3.212e-02   3.088 0.002044 ** 
+lot_size                   6.911e-05  1.931e-05   3.579 0.000354 ***
+sq_lot_size               -2.522e-09  1.289e-09  -1.956 0.050617 .  
+has_garage                 2.958e-01  2.275e-02  13.004  < 2e-16 ***
+has_encl_patio             4.625e-02  1.438e-02   3.215 0.001327 ** 
+has_security_gate          2.297e-01  2.080e-02  11.045  < 2e-16 ***
+has_pool                   1.010e-01  2.557e-02   3.951 8.09e-05 ***
+transit_score              6.687e-02  3.463e-03  19.310  < 2e-16 ***
+as.factor(school_score)2   1.015e-01  3.325e-02   3.052 0.002308 ** 
+as.factor(school_score)3   9.895e-02  3.230e-02   3.064 0.002219 ** 
+as.factor(school_score)4   8.920e-02  3.181e-02   2.804 0.005093 ** 
+as.factor(school_score)5   8.133e-02  3.196e-02   2.545 0.011023 *  
+as.factor(school_score)6   9.803e-02  3.371e-02   2.908 0.003684 ** 
+as.factor(school_score)7   9.105e-02  3.275e-02   2.780 0.005488 ** 
+as.factor(school_score)8   9.534e-02  3.282e-02   2.904 0.003722 ** 
+as.factor(school_score)9   8.407e-02  3.506e-02   2.398 0.016601 *  
+as.factor(school_score)10  1.023e-01  4.161e-02   2.458 0.014054 *  
+type_of_buyerRental        1.108e-01  1.879e-02   5.897 4.40e-09 ***
+age                       -9.654e-03  4.826e-04 -20.006  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2607 on 1836 degrees of freedom
+Multiple R-squared:  0.6531,	Adjusted R-squared:  0.6484 
+F-statistic: 138.3 on 25 and 1836 DF,  p-value: < 2.2e-16
+
+
+Call:
+lm(formula = log_price ~ as.factor(num_beds) + as.factor(num_baths) + 
+    lot_size + has_garage + has_encl_patio + has_security_gate + 
+    has_pool + transit_score + as.factor(school_score) + type_of_buyer + 
+    age, data = data)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.79848 -0.16212 -0.05266  0.11257  1.70732 
+
+Coefficients:
+                            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                1.222e+01  4.377e-02 279.234  < 2e-16 ***
+as.factor(num_beds)2       7.708e-02  3.154e-02   2.444  0.01463 *  
+as.factor(num_beds)3       2.053e-01  3.852e-02   5.330 1.11e-07 ***
+as.factor(num_beds)4       4.358e-01  4.298e-02  10.139  < 2e-16 ***
+as.factor(num_beds)6       5.213e-01  6.710e-02   7.769 1.31e-14 ***
+as.factor(num_beds)8       9.005e-01  7.530e-02  11.958  < 2e-16 ***
+as.factor(num_baths)2      8.024e-02  1.597e-02   5.024 5.55e-07 ***
+as.factor(num_baths)3      9.679e-02  3.212e-02   3.013  0.00262 ** 
+lot_size                   3.244e-05  4.648e-06   6.980 4.11e-12 ***
+has_garage                 3.056e-01  2.222e-02  13.755  < 2e-16 ***
+has_encl_patio             4.653e-02  1.439e-02   3.232  0.00125 ** 
+has_security_gate          2.305e-01  2.081e-02  11.077  < 2e-16 ***
+has_pool                   1.002e-01  2.559e-02   3.915 9.38e-05 ***
+transit_score              6.661e-02  3.463e-03  19.234  < 2e-16 ***
+as.factor(school_score)2   1.037e-01  3.325e-02   3.119  0.00184 ** 
+as.factor(school_score)3   1.009e-01  3.231e-02   3.125  0.00181 ** 
+as.factor(school_score)4   9.327e-02  3.176e-02   2.936  0.00336 ** 
+as.factor(school_score)5   8.665e-02  3.187e-02   2.719  0.00662 ** 
+as.factor(school_score)6   1.032e-01  3.363e-02   3.068  0.00218 ** 
+as.factor(school_score)7   9.641e-02  3.266e-02   2.952  0.00320 ** 
+as.factor(school_score)8   1.001e-01  3.276e-02   3.057  0.00227 ** 
+as.factor(school_score)9   8.837e-02  3.502e-02   2.523  0.01170 *  
+as.factor(school_score)10  9.688e-02  4.155e-02   2.331  0.01984 *  
+type_of_buyerRental        1.102e-01  1.881e-02   5.859 5.49e-09 ***
+age                       -9.671e-03  4.828e-04 -20.029  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2609 on 1837 degrees of freedom
+Multiple R-squared:  0.6524,	Adjusted R-squared:  0.6479 
+F-statistic: 143.7 on 24 and 1837 DF,  p-value: < 2.2e-16
+
+# Comparison of Model Performance Indices
+
+Name          | Model |    R2 | R2 (adj.) |  RMSE | Sigma | AIC weights | AICc weights | BIC weights | Performance-Score
+------------------------------------------------------------------------------------------------------------------------
+model_ls_red  |    lm | 0.653 |     0.648 | 0.259 | 0.261 |       0.238 |        0.217 |    1.37e-10 |            65.53%
+model_ls_all  |    lm | 0.653 |     0.648 | 0.259 | 0.261 |       0.169 |        0.149 |    6.13e-12 |            63.97%
+model_full    |    lm | 0.650 |     0.647 | 0.260 | 0.261 |       0.430 |        0.482 |       1.000 |            42.86%
+model_school  |    lm | 0.653 |     0.648 | 0.259 | 0.261 |       0.070 |        0.064 |    4.04e-11 |            39.34%
+model_ls_red2 |    lm | 0.652 |     0.648 | 0.259 | 0.261 |       0.093 |        0.088 |    8.53e-10 |            36.85%
+[1] "Test for exclusion of indicators"
+[1] "RSS_unconstrained:"
+[1] 124.6499
+[1] "RSS_constrained:"
+[1] 124.7376
+[1] "F-statistic:"
+[1] 1.29224
+Analysis of Variance Table
+
+Model 1: log_price ~ as.factor(num_beds) + as.factor(num_baths) + floor_space + 
+    lot_size + sq_lot_size + has_garage + has_encl_patio + has_security_gate + 
+    has_pool + transit_score + as.factor(school_score) + type_of_buyer + 
+    age
+Model 2: log_price ~ as.factor(num_beds) + as.factor(num_baths) + lot_size + 
+    sq_lot_size + has_garage + has_encl_patio + has_security_gate + 
+    has_pool + transit_score + as.factor(school_score) + type_of_buyer + 
+    age
+  Res.Df    RSS Df Sum of Sq      F Pr(>F)
+1   1835 124.65                           
+2   1836 124.74 -1 -0.087781 1.2922 0.2558
+ iter = 1     powers = 0.1960419 
+ iter = 2     powers = 0.1217143 
+ iter = 3     powers = 0.1405961 
+ iter = 4     powers = 0.135838 
+ iter = 5     powers = 0.1370395 
+ iter = 6     powers = 0.1367363 
+ iter = 7     powers = 0.1368128 
+ MLE of lambda Score Statistic (z) Pr(>|z|)  
+       0.13681             -2.0662  0.03881 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+iterations =  7 
+ iter = 1     powers = 0.7008595 
+ iter = 2     powers = 0.699331 
+ iter = 3     powers = 0.6994056 
+ MLE of lambda Score Statistic (z) Pr(>|z|)  
+       0.69941              2.3896  0.01687 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+iterations =  3 
+ iter = 1     powers = 0.1525748 0.6993241 
+ iter = 2     powers = 0.06397721 0.6975264 
+ iter = 3     powers = 0.08776307 0.6976494 
+ iter = 4     powers = 0.08142974 0.6976309 
+ iter = 5     powers = 0.08311969 0.697635 
+ iter = 6     powers = 0.08266901 0.6976339 
+ iter = 7     powers = 0.08278922 0.6976342 
+ iter = 8     powers = 0.08275716 0.6976341 
+         MLE of lambda Score Statistic (z) Pr(>|z|)  
+lot_size      0.082757             -2.0269  0.04267 *
+age           0.697634              2.3932  0.01670 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+iterations =  8 
+
+Call:
+lm(formula = log_price ~ lot_size + sq_lot_size + as.factor(num_beds) + 
+    as.factor(num_baths) + has_garage + has_encl_patio + has_security_gate + 
+    has_pool + transit_score + as.factor(school_score) + type_of_buyer + 
+    age + sq_age, data = data)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.77857 -0.16275 -0.05347  0.11182  1.60591 
+
+Coefficients:
+                            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                1.214e+01  6.935e-02 175.030  < 2e-16 ***
+lot_size                   6.912e-05  1.921e-05   3.599 0.000329 ***
+sq_lot_size               -2.490e-09  1.282e-09  -1.942 0.052290 .  
+as.factor(num_beds)2       7.646e-02  3.157e-02   2.422 0.015519 *  
+as.factor(num_beds)3       2.040e-01  3.862e-02   5.281 1.44e-07 ***
+as.factor(num_beds)4       4.350e-01  4.297e-02  10.124  < 2e-16 ***
+as.factor(num_beds)6       5.406e-01  6.685e-02   8.087 1.10e-15 ***
+as.factor(num_beds)8       9.393e-01  7.617e-02  12.333  < 2e-16 ***
+as.factor(num_baths)2      7.972e-02  1.588e-02   5.022 5.62e-07 ***
+as.factor(num_baths)3      9.763e-02  3.195e-02   3.056 0.002279 ** 
+has_garage                 2.919e-01  2.264e-02  12.893  < 2e-16 ***
+has_encl_patio             4.578e-02  1.431e-02   3.200 0.001398 ** 
+has_security_gate          2.275e-01  2.069e-02  10.996  < 2e-16 ***
+has_pool                   9.787e-02  2.544e-02   3.847 0.000124 ***
+transit_score              6.688e-02  3.444e-03  19.418  < 2e-16 ***
+as.factor(school_score)2   1.048e-01  3.307e-02   3.169 0.001557 ** 
+as.factor(school_score)3   9.404e-02  3.214e-02   2.926 0.003477 ** 
+as.factor(school_score)4   8.438e-02  3.165e-02   2.666 0.007751 ** 
+as.factor(school_score)5   7.658e-02  3.181e-02   2.408 0.016159 *  
+as.factor(school_score)6   9.548e-02  3.353e-02   2.847 0.004462 ** 
+as.factor(school_score)7   9.239e-02  3.257e-02   2.836 0.004615 ** 
+as.factor(school_score)8   9.383e-02  3.265e-02   2.874 0.004101 ** 
+as.factor(school_score)9   8.176e-02  3.488e-02   2.344 0.019169 *  
+as.factor(school_score)10  1.042e-01  4.139e-02   2.518 0.011900 *  
+type_of_buyerRental        1.118e-01  1.869e-02   5.980 2.68e-09 ***
+age                       -1.520e-02  1.302e-03 -11.673  < 2e-16 ***
+sq_age                     1.316e-04  2.874e-05   4.580 4.96e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2592 on 1835 degrees of freedom
+Multiple R-squared:  0.6571,	Adjusted R-squared:  0.6522 
+F-statistic: 135.2 on 26 and 1835 DF,  p-value: < 2.2e-16
+
+# Comparison of Model Performance Indices
+
+Name         | Model |    R2 | R2 (adj.) |  RMSE | Sigma | AIC weights | AICc weights | BIC weights | Performance-Score
+-----------------------------------------------------------------------------------------------------------------------
+model_trans  |    lm | 0.657 |     0.652 | 0.257 | 0.259 |       1.000 |        1.000 |       0.999 |           100.00%
+model_ls_red |    lm | 0.653 |     0.648 | 0.259 | 0.261 |    6.89e-05 |     7.11e-05 |       0.001 |             0.00%
